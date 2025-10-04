@@ -63,6 +63,7 @@ body {
     border: 5px solid var(--primary-color);
     margin-bottom: 1rem;
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    object-fit: cover;
 }
 
 .author-name {

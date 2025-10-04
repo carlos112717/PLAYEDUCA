@@ -24,13 +24,13 @@ body {
 }
 
 .header {
-    background: linear-gradient(135deg, var(--primary-color), #6dd5ed); /* Degradado atractivo */
+    background: linear-gradient(135deg, var(--primary-color), #6dd5ed);
     color: var(--white);
     padding: 2rem 1rem;
     text-align: center;
     box-shadow: var(--box-shadow);
     position: relative;
-    overflow: hidden; /* Para las formas de fondo si las añades */
+    /* overflow: hidden; */ /* <- ESTA LÍNEA FUE ELIMINADA PARA MOSTRAR EL BOTÓN */
 }
 
 .header::before { /* Un detalle decorativo */
@@ -50,7 +50,7 @@ body {
     align-items: center;
     justify-content: center;
     margin-bottom: 1rem;
-    gap: 10px;
+    gap: 15px; /* Aumentado para más espacio */
 }
 
 .creator-photo {
@@ -62,9 +62,23 @@ body {
     box-shadow: var(--box-shadow);
 }
 
+.creator-info div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+
 .creator-name {
     font-weight: 600;
     font-size: 1.1rem;
+    color: var(--white);
+    margin-bottom: 4px;
+}
+
+.creation-date {
+    font-size: 0.9rem;
+    opacity: 0.8;
     color: var(--white);
 }
 
@@ -89,13 +103,13 @@ body {
     background: var(--white);
     border-radius: 12px;
     box-shadow: var(--box-shadow);
-    flex-grow: 1; /* Permite que el contenedor principal crezca para llenar el espacio */
+    flex-grow: 1;
 }
 
 .game-description {
     margin-bottom: 2rem;
-    padding: 1.5rem;
-    border-bottom: 1px solid var(--light-gray);
+    padding-bottom: 1.5rem; /* Usamos padding en lugar de margin para mantener la línea dentro */
+    border-bottom: 1px solid #e0e0e0; /* Un color de borde más suave */
 }
 
 .game-description h2 {
@@ -114,17 +128,16 @@ body {
     text-align: center;
 }
 
-/* Estilos para el iframe y su contenedor, basado en tu código */
 .interacty_padding {
     position: relative;
-    padding: 99.5% 0 0 0; /* Casi cuadrado. Ajustar si el juego es más ancho o más alto */
+    padding-top: 99.5%; /* Usar padding-top es más consistente para mantener la relación de aspecto */
     width: 100%;
-    max-width: 800px; /* Limita el ancho máximo del iframe */
-    margin: 0 auto 1.5rem auto; /* Centra el iframe */
-    background-color: #e0e0e0; /* Fondo para que no se vea blanco si carga lento */
+    max-width: 800px;
+    margin: 0 auto 1.5rem auto;
+    background-color: #e0e0e0;
     border-radius: 8px;
-    overflow: hidden; /* Asegura que las esquinas redondeadas se apliquen */
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15); /* Sombra más pronunciada */
+    overflow: hidden;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 
 .interacty_wrapper {
@@ -133,16 +146,13 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center; /* Centra verticalmente el iframe si no llena todo el wrapper */
 }
 
 .interacty_wrapper iframe {
     border: none;
     width: 100%;
     height: 100%;
-    display: block; /* Elimina espacio extra que algunos navegadores añaden a iframes */
+    display: block;
 }
 
 .iframe-tip {
@@ -163,106 +173,54 @@ body {
 /* Estilo para el botón de Volver al Inicio */
 .back-to-home {
     position: absolute;
-    top: 15px;
-    left: 15px;
+    top: 20px;
+    left: 20px;
     background-color: rgba(255, 255, 255, 0.2);
     color: var(--white);
     padding: 8px 15px;
-    border-radius: 20px;
+    border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
     font-size: 0.9rem;
+    z-index: 10; /* Asegura que esté por encima de otros elementos */
 }
 
 .back-to-home:hover {
     background-color: rgba(255, 255, 255, 0.4);
+    transform: scale(1.05);
 }
 
-/* Ajustes en la info del creador para alinear nombre y fecha */
-.creator-info {
-    gap: 15px; /* Aumenta un poco el espacio */
-}
 
-.creator-info div {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Alinea el texto a la izquierda */
-    text-align: left;
-}
-
-.creator-name {
-    margin-bottom: 4px; /* Espacio entre el nombre y la fecha */
-}
-
-.creation-date {
-    font-size: 0.9rem;
-    opacity: 0.8;
-    color: var(--white);
-}
-
-/* Media Queries para responsividad */
+/* Media Queries para responsividad (agrupadas para mejor organización) */
 @media (max-width: 768px) {
-    .main-title {
-        font-size: 2rem;
-    }
-    .subtitle {
-        font-size: 1.2rem;
-    }
+    .main-title { font-size: 2rem; }
+    .subtitle { font-size: 1.2rem; }
     .container {
         width: 95%;
         margin: 1rem auto;
         padding: 1rem;
     }
-    .creator-photo {
-        width: 50px;
-        height: 50px;
-    }
-    .creator-name {
-        font-size: 1rem;
-    }
-    .game-description h2 {
-        font-size: 1.5rem;
-    }
-    .game-description p {
-        font-size: 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .main-title {
-        font-size: 1.8rem;
-    }
-    .subtitle {
-        font-size: 1rem;
-    }
-    .creator-info {
-        flex-direction: column;
-        gap: 5px;
-    }
-    .creator-photo {
-        margin-bottom: 0.5rem;
-    }
-}
-
-/* AÑADIR ESTO AL FINAL DE TU ARCHIVO estilos.css */
-
-
-/* Responsividad para el botón de volver */
-@media (max-width: 768px) {
+    .creator-photo { width: 50px; height: 50px; }
+    .creator-name { font-size: 1rem; }
+    .game-description h2 { font-size: 1.5rem; }
+    .game-description p { font-size: 1rem; }
     .back-to-home {
-        top: 10px;
-        left: 10px;
+        top: 15px;
+        left: 15px;
         padding: 6px 12px;
         font-size: 0.8rem;
     }
+    .creator-info { justify-content: center; text-align: center; }
+    .creator-info div { align-items: center; }
+}
 
+@media (max-width: 480px) {
+    .main-title { font-size: 1.8rem; }
+    .subtitle { font-size: 1rem; }
     .creator-info {
-        justify-content: center;
-        text-align: center;
+        flex-direction: column;
+        gap: 10px;
     }
-
-    .creator-info div {
-        align-items: center;
-    }
+    .creator-photo { margin-bottom: 0.5rem; }
 }
