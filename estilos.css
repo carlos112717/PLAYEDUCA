@@ -1,0 +1,268 @@
+/* Importa una fuente bonita de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    --primary-color: #4CAF50; /* Un verde vibrante */
+    --secondary-color: #FFC107; /* Un amarillo cálido */
+    --text-color: #333;
+    --light-gray: #f4f4f4;
+    --dark-gray: #666;
+    --white: #ffffff;
+    --box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: var(--light-gray);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.header {
+    background: linear-gradient(135deg, var(--primary-color), #6dd5ed); /* Degradado atractivo */
+    color: var(--white);
+    padding: 2rem 1rem;
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    position: relative;
+    overflow: hidden; /* Para las formas de fondo si las añades */
+}
+
+.header::before { /* Un detalle decorativo */
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 150px;
+    height: 150px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transform: rotate(45deg);
+}
+
+.creator-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    gap: 10px;
+}
+
+.creator-photo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 3px solid var(--secondary-color);
+    object-fit: cover;
+    box-shadow: var(--box-shadow);
+}
+
+.creator-name {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--white);
+}
+
+.main-title {
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.subtitle {
+    font-size: 1.4rem;
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+.container {
+    width: 90%;
+    max-width: 960px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: var(--box-shadow);
+    flex-grow: 1; /* Permite que el contenedor principal crezca para llenar el espacio */
+}
+
+.game-description {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.game-description h2 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.game-description p {
+    font-size: 1.1rem;
+    color: var(--dark-gray);
+    margin-bottom: 0.8rem;
+}
+
+.game-embed {
+    text-align: center;
+}
+
+/* Estilos para el iframe y su contenedor, basado en tu código */
+.interacty_padding {
+    position: relative;
+    padding: 99.5% 0 0 0; /* Casi cuadrado. Ajustar si el juego es más ancho o más alto */
+    width: 100%;
+    max-width: 800px; /* Limita el ancho máximo del iframe */
+    margin: 0 auto 1.5rem auto; /* Centra el iframe */
+    background-color: #e0e0e0; /* Fondo para que no se vea blanco si carga lento */
+    border-radius: 8px;
+    overflow: hidden; /* Asegura que las esquinas redondeadas se apliquen */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15); /* Sombra más pronunciada */
+}
+
+.interacty_wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centra verticalmente el iframe si no llena todo el wrapper */
+}
+
+.interacty_wrapper iframe {
+    border: none;
+    width: 100%;
+    height: 100%;
+    display: block; /* Elimina espacio extra que algunos navegadores añaden a iframes */
+}
+
+.iframe-tip {
+    font-size: 0.9rem;
+    color: var(--dark-gray);
+    margin-top: 1rem;
+}
+
+.footer {
+    background-color: var(--text-color);
+    color: var(--white);
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+}
+
+/* Estilo para el botón de Volver al Inicio */
+.back-to-home {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: var(--white);
+    padding: 8px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.back-to-home:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Ajustes en la info del creador para alinear nombre y fecha */
+.creator-info {
+    gap: 15px; /* Aumenta un poco el espacio */
+}
+
+.creator-info div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinea el texto a la izquierda */
+    text-align: left;
+}
+
+.creator-name {
+    margin-bottom: 4px; /* Espacio entre el nombre y la fecha */
+}
+
+.creation-date {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    color: var(--white);
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2rem;
+    }
+    .subtitle {
+        font-size: 1.2rem;
+    }
+    .container {
+        width: 95%;
+        margin: 1rem auto;
+        padding: 1rem;
+    }
+    .creator-photo {
+        width: 50px;
+        height: 50px;
+    }
+    .creator-name {
+        font-size: 1rem;
+    }
+    .game-description h2 {
+        font-size: 1.5rem;
+    }
+    .game-description p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 1.8rem;
+    }
+    .subtitle {
+        font-size: 1rem;
+    }
+    .creator-info {
+        flex-direction: column;
+        gap: 5px;
+    }
+    .creator-photo {
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* AÑADIR ESTO AL FINAL DE TU ARCHIVO estilos.css */
+
+
+/* Responsividad para el botón de volver */
+@media (max-width: 768px) {
+    .back-to-home {
+        top: 10px;
+        left: 10px;
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+
+    .creator-info {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .creator-info div {
+        align-items: center;
+    }
+}
